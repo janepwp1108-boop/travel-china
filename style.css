@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow: hidden;
+}
+
+/* 1. เปลี่ยนพื้นหลังเป็นภาพเมืองจีน (Shanghai Night View) */
+.hero {
+    background-image: url("https://png.pngtree.com/background/20210710/original/pngtree-vintage-traditional-chinese-style-new-year-background-picture-image_978864.jpg");
+    background-position: center;
+    height: 100vh; /* บังคับให้สูงเต็มจอ */
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    /* ปรับ gradient ใหม่ให้มืดลงบางๆ ทั่วทั้งภาพ เพื่อให้ตัวหนังสือตรงกลางเด่นขึ้น */
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.7)
+    );
+}
+
+nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    padding: 30px 0;
+}
+
+.logo {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+/* 2. ฟังก์ชันเมนูขวาบนเด้งได้ตอนเมาส์โดน (Hover Effect เจ๋งๆ) */
+nav a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    position: relative;
+    padding: 5px 0;
+    font-weight: 500;
+    /* ใช้ cubic-bezier เพื่อให้จังหวะเด้งตอนเมาส์ชี้ดูนุ่มนวลและมีสปริง */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff0000;
+    transform: translateY(-5px) scale(1.05); /* เด้งขึ้นและขยายขึ้นนิดหน่อย */
+}
+
+/* แถม: เอฟเฟกต์เส้นใต้เรืองแสงวิ่งขยายออกซ้าย-ขวา ตอน Hover เมนู */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ff0000;
+    transform-origin: bottom center;
+    transition: transform 0.25s ease-out;
+    box-shadow: 0 0 8px #ff0000;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* 3. ย้ายกล่องข้อความ China Town มาไว้ตรงกลางหน้าจอ */
+.content {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%; /* เปลี่ยนจาก 8% เป็น 50% */
+    transform: translate(-50%, -50%); /* จัดกึ่งกลางที่แท้จริงทั้งแนวตั้งและแนวนอน */
+    color: white;
+    text-align: center; /* สั่งให้ตัวหนังสือและปุ่มจัดกึ่งกลางตัวเอง */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tag {
+    font-size: 25;
+    color: #ffffff;
+    letter-spacing: 4px;
+}
+
+.content h1{
+    font-size: 70px;
+    font-weight: 900;
+    line-height: 0.9;
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #ff4d4d,
+        #ff3015,
+        #ff8c00,
+        #ffca1b,
+        #550c0c
+    );
+
+    background-size: 300% 300%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    animation: gradient 5s ease infinite;
+
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+@keyframes gradient{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
+.content p {
+    max-width: 550px;
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* จัดกลุ่มปุ่มให้อยู่ตรงกลาง */
+}
+
+/* ฟังก์ชันเพิ่มเติมสำหรับปุ่ม (Hover แล้วเรืองแสง/นูนขึ้น) */
+/* ===================================================
+   สไตล์เริ่มต้นของปุ่ม Attraction, Food, Qoods, Contact 
+   =================================================== */
+.btn1, .btn2, .btn3, .btn4 {
+    padding: 15px 35px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    
+    /* ดีไซน์ปุ่มแบบกระจกฝ้า (Glassmorphism) */
+    background: rgba(255, 255, 255, 0.08); 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    /* กำหนดความสมูทในการเคลื่อนไหว (ใช้ cubic-bezier เพื่อให้เด้งแบบสปริง) */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease, 
+                color 0.3s ease;
+}
+
+/* ===================================================
+   ฟังก์ชันตอนเมาส์ชี้ (Hover Effect) ให้เด้งและเรืองแสงเสมอกัน
+   =================================================== */
+.btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover {
+    color: #c00000;                        /* เปลี่ยนสีตัวอักษรเป็นสีฟ้า */
+    background: rgba(255, 255, 255, 0.15); /* ให้กระจกฝ้าสว่างขึ้นนิดนึง */
+    border-color: #ffe600;                 /* เปลี่ยนขอบเป็นสีฟ้า */
+    transform: translateY(-6px) scale(1.03); /* เด้งลอยขึ้นบน + ขยายใหญ่ขึ้นนิดหน่อย */
+    box-shadow: 0 12px 25px rgba(255, 0, 0, 0.35); /* แสงนีออนฟุ้งสะท้อนอยู่ใต้ปุ่ม */
+}
+
+/* กล่องเวลาฝั่งขวา (คงไว้ที่เดิม แต่ปรับแอนิเมชันให้ไม่ตีกับ transform กึ่งกลาง) */
+.glass-card {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    margin-top: -110px; /* ใช้ margin-top ลบครึ่งหนึ่งของความสูงแทนการใช้ translateY โดดๆ เพื่อล็อกตำแหน่งขวา */
+    width: 320px;
+    padding: 30px;
+    z-index: 10;
+    background: rgba(255, 255, 255, .08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 25px;
+    color: white;
+    animation: float 4s ease-in-out infinite;
+}
+
+.glass-card h3 {
+    margin-bottom: 10px;
+}
+
+.glass-card h1 {
+    font-size: 40px;
+}
+
+/* ปรับแอนิเมชันลอยของกล่องเวลาใหม่ */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@media(max-width: 1024px) {
+    /* ซ่อนกล่องเวลาในหน้าจอที่เล็กลง เพื่อไม่ให้ทับกับข้อความตรงกลาง */
+    .glass-card {
+        display: none;
+    }
+}
+
+@media(max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+    .content h1 {
+        font-size: 55px;
+        line-height: 60px;
+    }
+}
+
