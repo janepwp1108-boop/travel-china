@@ -17,16 +17,17 @@ body {
     position: relative;
 }
 
+
 .overlay {
     position: absolute;
     inset: 0;
-    /* ปรับ gradient ใหม่ให้มืดลงบางๆ ทั่วทั้งภาพ เพื่อให้ตัวหนังสือตรงกลางเด่นขึ้น */
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.4),
         rgba(0, 0, 0, 0.7)
     );
 }
+
 
 nav {
     position: relative;
@@ -159,10 +160,7 @@ nav a:hover::after {
     justify-content: center; /* จัดกลุ่มปุ่มให้อยู่ตรงกลาง */
 }
 
-/* ฟังก์ชันเพิ่มเติมสำหรับปุ่ม (Hover แล้วเรืองแสง/นูนขึ้น) */
-/* ===================================================
-   สไตล์เริ่มต้นของปุ่ม Attraction, Food, Qoods, Contact 
-   =================================================== */
+
 .btn1, .btn2, .btn3, .btn4 {
     padding: 15px 35px;
     border-radius: 50px;
@@ -177,21 +175,19 @@ nav a:hover::after {
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     
-    /* กำหนดความสมูทในการเคลื่อนไหว (ใช้ cubic-bezier เพื่อให้เด้งแบบสปริง) */
+   
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
                 border-color 0.3s ease, 
                 box-shadow 0.3s ease, 
                 color 0.3s ease;
 }
 
-/* ===================================================
-   ฟังก์ชันตอนเมาส์ชี้ (Hover Effect) ให้เด้งและเรืองแสงเสมอกัน
-   =================================================== */
+
 .btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover {
-    color: #c00000;                        /* เปลี่ยนสีตัวอักษรเป็นสีฟ้า */
-    background: rgba(255, 255, 255, 0.15); /* ให้กระจกฝ้าสว่างขึ้นนิดนึง */
-    border-color: #ffe600;                 /* เปลี่ยนขอบเป็นสีฟ้า */
-    transform: translateY(-6px) scale(1.03); /* เด้งลอยขึ้นบน + ขยายใหญ่ขึ้นนิดหน่อย */
+    color: #c00000;                        
+    background: rgba(255, 255, 255, 0.15); 
+    border-color: #ffe600;                
+    transform: translateY(-6px) scale(1.03); 
     box-shadow: 0 12px 25px rgba(255, 0, 0, 0.35); /* แสงนีออนฟุ้งสะท้อนอยู่ใต้ปุ่ม */
 }
 
@@ -250,3 +246,84 @@ nav a:hover::after {
     }
 }
 
+/* Container ครอบประกายไฟให้อยู่เต็มจอและไม่บังปุ่ม */
+.firefly-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none; /* ทำให้ยังกดปุ่มบนหน้าเว็บได้ตามปกติ */
+    z-index: 2; /* อยู่หลังข้อความ แต่อยู่หน้าภาพพื้นหลัง */
+}
+
+/* สไตล์เริ่มต้นของละอองประกายไฟ */
+.sparkle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    mix-blend-mode: screen; /* กรองเฉพาะสีทองให้เรืองแสง */
+}
+
+/* ละอองไฟชุดที่ 1: เม็ดใหญ่ ลอยเร็วปานกลาง */
+.firefly-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.spark {
+    position: absolute;
+    top: -20px;
+    border-radius: 50%;
+    background: #ffd700;
+    box-shadow:
+        0 0 6px #ffd700,
+        0 0 12px #ffb300,
+        0 0 20px #ff9900;
+
+    animation: snowfall linear infinite;
+}
+
+/* เล็ก */
+.spark:nth-child(3n) {
+    width: 3px;
+    height: 3px;
+    opacity: .7;
+}
+
+/* กลาง */
+.spark:nth-child(3n+1) {
+    width: 5px;
+    height: 5px;
+    opacity: .9;
+}
+
+/* ใหญ่ */
+.spark:nth-child(3n+2) {
+    width: 8px;
+    height: 8px;
+    opacity: 1;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-10vh) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(50vh) translateX(30px);
+    }
+
+    100% {
+        transform: translateY(110vh) translateX(-20px);
+        opacity: 0;
+    }
+}
