@@ -1,0 +1,122 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#fff8e7;
+    color:#333;
+}
+
+nav{
+    background:#8b0000;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+.hero{
+    background:#b22222;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    color:gold;
+    font-size:4rem;
+}
+
+.food-grid{
+    width:90%;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.food-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.food-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.food-card h3{
+    padding:15px;
+}
+
+.food-card a{
+    display:block;
+    text-align:center;
+    padding:12px;
+    background:#8b0000;
+    color:white;
+    text-decoration:none;
+}
+
+.food-card a:hover{
+    background:#b22222;
+}
+
+.detail-container{
+    max-width:1100px;
+    margin:40px auto;
+    padding:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.detail-container img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.detail-content h1{
+    color:#8b0000;
+    margin-bottom:20px;
+}
+
+.detail-content h3{
+    color:#b22222;
+    margin-top:15px;
+}
+
+.detail-content p{
+    line-height:1.8;
+}
+
+footer{
+    background:#5a0000;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+}
+
+@media(max-width:768px){
+    .detail-container{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+}
