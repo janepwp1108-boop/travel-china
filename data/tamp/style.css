@@ -1,0 +1,191 @@
+/* รีเซ็ตค่าพื้นฐาน */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* พื้นหลังหน้าเว็บ: สีแดงเลือดหมูกำมะหยี่ไล่เฉดหรูหราลึกลับ (Crimson & Dark Luxury) */
+body {
+    font-family: 'Anuphan', 'Kanit', sans-serif;
+    font-weight: 400;
+    background: radial-gradient(circle at center, #5c0606 0%, #2a0101 70%, #120000 100%) !important;
+    min-height: 100vh;
+    padding: 120px 20px 60px 20px;
+    position: relative;
+    color: #f5f5f5;
+}
+
+/* ปุ่มกลับหน้าแรก: สไตล์มินิมอลขอบทองจางๆ บลอคพื้นหลัง */
+.btn-home {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    background-color: rgba(212, 175, 55, 0.1);
+    color: #d4af37; /* สีทอง */
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 30px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-home:hover {
+    background: #d4af37;
+    color: #3a0202;
+    border-color: #d4af37;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+}
+
+/* ตัวครอบคลุมทั้งหมด */
+.container-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* หัวข้อใหญ่: อักษรพู่กันจีนสีทองเหลืองอร่าม สะท้อนแสงเงา */
+.page-title {
+    font-family: 'Charm', cursive;
+    color: #d4af37; /* สีทองจักรพรรดิ */
+    text-align: center;
+    font-size: 3.8rem;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 10px rgba(212, 175, 55, 0.3);
+    letter-spacing: 2px;
+}
+
+/* ระบบแผงตาราง Grid */
+.souvenir-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+    gap: 30px; 
+}
+
+/* ตัวกล่องการ์ด: เปลี่ยนเป็นสีขาวงาช้าง (Ivory White) ตัดขอบทองบางเบา */
+.souvenir-card {
+    background: #ffffff !important;
+    border-radius: 16px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* เอฟเฟกต์ตอนชี้เมาส์ที่การ์ด: ยกตัวขึ้น มีรัศมีแสงสีทองล้อมรอบ */
+.souvenir-card:hover {
+    transform: translateY(-10px); 
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+/* ส่วนรูปภาพในการ์ด */
+.image-container {
+    width: 100%;
+    height: 230px; 
+    overflow: hidden;
+    background-color: #f7f5f0;
+    border-bottom: 3px solid #d4af37; /* เส้นคั่นสีทอง */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+/* ชี้ที่การ์ดแล้วรูปแอบซูมเข้าเบาๆ */
+.souvenir-card:hover .image-container img {
+    transform: scale(1.06);
+}
+
+/* ส่วนเนื้อหาภายในแผ่นการ์ด */
+.content-container {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+/* ชื่อของฝาก: ฟอนต์กนกตัวหนา สีแดงเลือดนก/แดงราชวงศ์เด่นชัด */
+h2 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.35rem;
+    color: #7a0b0b;
+    margin-bottom: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* รายละเอียดสินค้า: สีเทาเข้มอ่านง่าย สบายตา */
+p {
+    font-size: 0.95rem;
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex-grow: 1; 
+}
+
+/* โซนหมวดหมู่ด้านล่างการ์ด */
+.meta-zone {
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 14px;
+    margin-top: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.category-label {
+    font-size: 0.85rem;
+    color: #a0aec0;
+    font-weight: 500;
+}
+
+/* สีของแท็กหมวดหมู่: แดงเข้มหรูหรา */
+.category-value {
+    font-size: 0.9rem;
+    color: #9b1c1c;
+    font-weight: 600;
+    margin-left: 6px;
+    background-color: #fff5f5;
+    padding: 2px 10px;
+    border-radius: 20px;
+    border: 1px solid #feb2b2;
+}
+
+/* Responsive สำหรับหน้าจอมือถือ */
+@media (max-width: 600px) {
+    body {
+        padding-top: 100px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .page-title {
+        font-size: 2.3rem;
+        margin-bottom: 30px;
+    }
+    .btn-home {
+        top: 15px;
+        left: 15px;
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+    .souvenir-grid {
+        grid-template-columns: 1fr; /* บนมือถือปรับเป็นแถวเดี่ยวเรียงลงมา */
+        gap: 20px;
+    }
+}

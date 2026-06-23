@@ -1,12 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hi
-    </title>
+    <title>ของฝากยอดฮิตจากประเทศจีน - รวมฮิต 18 อย่าง</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+    <a href="index.html" class="btn-home">
+        <span>⬅</span> กลับหน้าแรก
+    </a>
+
+    <div class="container-wrapper">
+        <h1 class="page-title">🏮 ของฝากยอดฮิตจากประเทศจีน 🏮</h1>
+        
+        <div class="souvenir-grid" id="souvenir-grid-container">
+            </div>
+    </div>
+
+    <script>
+        // คลังข้อมูลของฝาก อัปเดตเพิ่มเป็น 18 อย่างเรียบร้อยครับ
+        const souvenirData = [
+            {
+                name: "ชาหลงจิ่ง (Longjing Tea)",
+                description: "สุดยอดใบชาเขียวระดับจักรพรรดิจากเมืองหางโจว มีกลิ่นหอมคล้ายถั่วคั่ว รสชาตินุ่มนวลชุ่มคอ เป็นของฝากยอดนิยมที่มีมูลค่าและทรงคุณค่าอย่างยิ่ง",
+                category: "เครื่องดื่ม / ชาจีน",
+                imageUrl: "https://images.unsplash.com/photo-1597481499750-3e6b22637e12?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                name: "ขนมเปี๊ยะยูนนาน (Flower Pastry)",
+                description: "ขนมเปี๊ยะไส้ดอกกุหลาบขึ้นชื่อของมณฑลยูนนาน แป้งด้านนอกบางกรอบซ้อนกันเป็นชั้นๆ ไส้ข้างในทำจากกลีบดอกกุหลาบกวน หอมหวานละมุนละไมทานคู่กับชาเข้ากันสุดๆ",
+                category: "ขนม / ของกินเล่น",
+                imageUrl: "https://png.pngtree.com/thumb_back/fh260/background/20220311/pngtree-yunnan-flower-cake-photography-image_1025298.jpg"
+            },
+            {
+                name: "เหล้าจีนเหมาถัย (Kweichow Moutai)",
+                description: "เหล้าขาวพรีเมียมระดับตำนานที่เป็นเหล้าประจำชาติของจีน ผลิตจากข้าวสาลีและข้าวฟ่าง นำมาหมักและกลั่นด้วยสูตรลับเฉพาะแบบโบราณ มีกลิ่นหอมแรงอันเป็นเอกลักษณ์ และรสชาติที่เข้มข้นนุ่มลึกอย่างยาวนาน",
+                category: "เครื่องดื่มแอลกอฮอล์",
+                imageUrl: "https://sothebys-md.brightspotcdn.com/dims4/default/4d8eb3d/2147483647/strip/true/crop/2000x2000+0+0/resize/1024x1024!/quality/90/?url=http:%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fc9%2F8b%2F4166c5a54785a9788b7bccab8b99%2Fhk1331-135a.jpg"
+            },
+            {
+                name: "กุนเชียงกวางตุ้ง (Lap Cheong)",
+                description: "ของฝากยอดฮิตสายอาหารแห้ง กุนเชียงสไตล์กวางตุ้งแท้ๆ จะมีจุดเด่นที่การผสมเหล้าจีนและซีอิ๊วสูตรพิเศษ ทำให้มีกลิ่นหอมเป็นเอกลักษณ์ เนื้อแน่น มันน้อย นำไปผัดข้าวผัดหรือนึ่งก็อร่อย",
+                category: "อาหารแห้ง / วัตถุดิบ",
+                imageUrl: "https://5.imimg.com/data5/SELLER/Default/2023/9/342647071/IY/OI/SD/197398737/lap-cheong-dry-aged-chinese-sausage-500x500.jpg"
+            },
+            {
+                name: "ครีมบัวหิมะกวางซี (Bao Fu Ling)",
+                description: "สมุนไพรทาผิวสารพัดประโยชน์ยอดนิยมที่คนไทยต้องฝากหิ้ว มีสรรพคุณเด่นในด้านการรักษาแผลไฟไหม้ น้ำร้อนลวก บรรเทาอาการแมลงสัตว์กัดต่อย และลดการอักเสบของผิวหนังได้อย่างรวดเร็ว",
+                category: "เวชสำอาง / ยาสมุนไพร",
+                imageUrl: "https://down-my.img.susercontent.com/file/sg-11134201-7rfgq-m3a9sz1fvyaoad"
+            },
+            {
+                name: "พัดจีนโบราณ (Traditional Chinese Fan)",
+                description: "งานหัตถศิลป์อันงดงาม มีทั้งพัดผ้าไหมและพัดกระดาษ เขียนลวดลายพู่กันจีนโบราณ เช่น ภาพทิวทัศน์ ดอกไม้ หรืออักษรมงคล เหมาะสำหรับนำไปตกแต่งบ้านหรือใช้เป็นของที่ระลึกที่มีคุณค่าทางศิลปะ",
+                category: "ของที่ระลึก / งานฝีมือ",
+                imageUrl: "https://cf.shopee.co.th/file/785767e43c8d28d557d0fa31bb358517"
+            },
+            {
+                name: "พุทราจีนสอดไส้วอลนัท (Walnut Jujube)",
+                description: "ขนมเพื่อสุขภาพยอดฮิตยุคใหม่ เป็นการนำพุทราจีนเม็ดโตเนื้อหนานุ่มรสหวานธรรมชาติ ผ่าซีกแล้วสอดไส้ด้วยถั่วเนื้อกรอบมันอย่างวอลนัท ได้รสชาติหวานมันลงตัว เคี้ยวเพลินและมีประโยชน์สูง",
+                category: "ขนม / ผลไม้อบแห้ง",
+                imageUrl: "https://www.super-store.co.nz/assets/images/products/snakyard-jujube-walnut-date-475g.webp"
+            },
+            {
+                name: "ศิลปะกระดาษตัดจีน (Chinese Paper Cutting)",
+                description: "งานศิลปะพื้นบ้านโบราณที่ประณีตงดงาม นิยมใช้กระดาษสีแดงฉลุเป็นลวดลายมงคล เช่น ตัวอักษร 'ฮก' (ความสุข) หรือรูปปีนักษัตรต่างๆ มักใช้นำไปแปะกระจกหรือผนังเพื่ออวยพรให้โชคดี",
+                category: "ของที่ระลึก / งานฝีมือ",
+                imageUrl: "https://th.bing.com/th/id/R.076193165a72f058414340f78eff70f7?rik=juvVPKz6DrvTfA&riu=http%3a%2f%2fsubsites.chinadaily.com.cn%2fQiushi%2fatt%2f20240208%2f1707359054014000826.jpg&ehk=6grQwpZWiQt1a65%2fpTbNF7pJgy%2f4w9W7xXRImE5hKxU%3d&risl=&pid=ImgRaw&r=0"
+            },
+            {
+                name: "ซอสพริกเหล่ากานมา (Lao Gan Ma)",
+                description: "น้ำพริกเผาจีนในตำนานที่โด่งดังไปทั่วโลก รสชาติเค็มมันเผาและมีความเผ็ดชาเบาๆ จากหม่าล่า มีเอกลักษณ์ที่เนื้อพริกและถั่วกรุบกรอบ นำไปผัด คลุกข้าวสวย หรือจิ้มทานกับอะไรก็อร่อยอย่างเหลือเชื่อ",
+                category: "เครื่องปรุง / อาหารแห้ง",
+                imageUrl: "https://janax.eu/255-large_default/lao-gan-ma-crispy-onion-chili-oil-210g.jpg"
+            },
+            {
+                name: "ชานมลานฟงหยวน (Lan Fong Yuen Milk Tea)",
+                description: "ชานมบรรจุแก้วพร้อมดื่มระดับตำนาน สูตรต้นตำรับจากฮ่องกงและจีน โดดเด่นด้วยรสชาติชาที่เข้มข้น หอมละมุน ผสมผสานกับนมอย่างลงตัว ไม่หวานเลี่ยน เหมาะสำหรับสายชานมที่อยากซื้อกลับไปฟินต่อที่บ้าน",
+                category: "เครื่องดื่ม / ชานม",
+                imageUrl: "https://geminifoodcorp.com/wp-content/uploads/2022/07/Group-300.png"
+            },
+            {
+                name: "เครื่องเซรามิกและชุดชาจีน (Chinese Porcelain)",
+                description: "เครื่องปั้นดินเผาและชุดชาเซรามิกเคลือบเงาอย่างดี ลวดลายวิจิตรบรรจงตามเอกลักษณ์ศิลปะจีน เช่น ลายคราม ลายมังกร หรือลายดอกโบตั๋น มีให้เลือกทั้งแบบชุดใหญ่สำหรับผู้ใหญ่ หรือชุดมินิสำหรับตั้งโชว์",
+                category: "ของที่ระลึก / งานฝีมือ",
+                imageUrl: "https://image.made-in-china.com/202f0j00qGMYPvRFAOuy/OEM-Ceramic-Tea-Set-Giftware-Porcelain-Tea-Pot-Tea-Maker.webp"
+            },
+            {
+                name: "ซุปหม่าล่าก้อนไฮตี้เหลา (Haidilao Hotpot Base)",
+                description: "ซุปหม่าล่าก้อนสำเร็จรูปจากร้านชาบูชื่อดังระดับโลก เข้มข้นด้วยเครื่องเทศจีนและพริกฮวาเจียว ให้ความเผ็ดชาสะใจเหมือนไปทานที่ร้าน วิธีทำง่ายๆ แค่ต้มในน้ำเดือดก็พร้อมใส่เนื้อสัตว์และผักได้ตามใจชอบ",
+                category: "เครื่องปรุง / อาหารแห้ง",
+                imageUrl: "https://assets.myboxed.com.my/1685484552187.jpg"
+            },
+            {
+                name: "ยาอมแก้เจ็บคอเนียมฉื่ออม (Nin Jiom Pei Pa Koa Candy)",
+                description: "ยาอมสมุนไพรตรากวางจำหลักหรือชวนป๋วยปี่แป่กอในตำนาน มีสรรพคุณช่วยให้ชุ่มคอ แก้ไอ และละลายเสมหะ รสชาติหวานเย็นสดชื่น พกพาง่าย เป็นไอเทมที่คนไทยต้องเหมากลับมาเป็นของฝาก",
+                category: "เวชสำอาง / ยาสมุนไพร",
+                imageUrl: "https://images.ibspot.com/dm5n49u2pllbe9cwesi60utu376c?width=1500&height=1500&format=jpeg"
+            },
+            {
+                name: "เครื่องประดับหยกจีน (Chinese Jade)",
+                description: "หยกแท้จากจีนที่มีประวัติศาสตร์ยาวนาน นิยมนำมาทำเป็นกำไล จี้ห้อยคอ หรือปี่เซียะ ชาวจีนเชื่อว่าหยกเป็นอัญมณีนำโชค ช่วยปกป้องคุ้มครองผู้สวมใส่และเสริมบารมี เป็นของฝากที่มีคุณค่าทางจิตใจ",
+                category: "ของที่ระลึก / เครื่องประดับ",
+                imageUrl: "https://img.freepik.com/premium-photo/intricate-jade-dragon-wooden-stand-created-with-generative-ai_419341-12628.jpg"
+            },
+            {
+                name: "ขนมโก๋โบราณรสถั่วเขียว (Mung Bean Cake)",
+                description: "ขนมพื้นเมืองดั้งเดิมของจีนที่ทำจากถั่วเขียวบดละเอียด อัดแน่นในพิมพ์ลวดลายมงคลสวยงาม เนื้อขนมเนียนละเอียด นุ่มละมุนละลายในปาก หอมกลิ่นถั่วและน้ำมันงาจางๆ ทานกับชาเขียวเข้ากันอย่างลงตัว",
+                category: "ขนม / ของกินเล่น",
+                imageUrl: "https://silkroadrecipes.com/wp-content/uploads/2021/06/Mung-Bean-Cake-square.jpg"
+            },
+            {
+                name: "เหล้าเหลืองเส้าซิง (Shaoxing Wine)",
+                description: "เหล้าจีนโบราณทำจากข้าวเหนียวและยีสต์ หมักในไหดินเผาเป็นเวลานานจนได้สีเหลืองอำพัน มีกลิ่นหอมเฉพาะตัว รสชาตินุ่มนวล นิยมใช้นำมาดื่มเพื่อสุขภาพ หรือใช้ปรุงอาหารจานจีนเพื่อเพิ่มความหอมหวน",
+                category: "เครื่องดื่มแอลกอฮอล์ / เครื่องปรุง",
+                imageUrl: "https://looddl.ch/8790-Shopping/shaohsing-rice-wine-black-750ml.jpg"
+            },
+            {
+                name: "ขนมล่า條 รสหม่าล่า เวยหลง (Weilong Spicy Snacks)",
+                description: "ขนมสแน็คฟองเต้าหู้และหมึกเส้นปรุงรสหม่าล่าแบรนด์ดังระดับประเทศ รสชาติเผ็ดร้อน เค็มมัน เผ็ดชาเบาๆ เคี้ยวหนึบหนับเพลินจนหยุดไม่ได้ เป็นของกินเล่นยอดฮิตของวัยรุ่นจีนและไทยในปัจจุบัน",
+                category: "ขนม / ของกินเล่น",
+                imageUrl: "https://img06.weeecdn.com/item/image/265/330/40F4C51F3881156B.webp"
+            },
+            {
+                name: "ชุดเครื่องยาจีนสำหรับต้มซุป (Traditional Chinese Herbs)",
+                description: "เซ็ตสมุนไพรจีนแห้งบำรุงร่างกาย คัดสรรวัตถุดิบคุณภาพดี เช่น เก๋ากี้ ฮ่วยซัว ปักคี้ และพุทราแดง ใช้สำหรับนำไปตุ๋นกับไก่หรือกระดูกหมู ช่วยบำรุงกำลัง เสริมภูมิคุ้มกัน และทำให้ซุปมีกลิ่นหอมกลมกล่อม",
+                category: "อาหารแห้ง / วัตถุดิบ",
+                imageUrl: "https://www.thaimee-d.com/pub/media/catalog/product/cache/9ef2995c1c404cd4852076153399d50d/_/1/_1_353_1.jpg"
+            }
+        ];
+
+        // ฟังก์ชันลูปข้อมูลสร้างแผงการ์ดทั้งหมดแสดงขึ้นจอพร้อมกัน
+        function displayAllSouvenirs() {
+            const gridContainer = document.getElementById('souvenir-grid-container');
+            gridContainer.innerHTML = ""; 
+
+            souvenirData.forEach(item => {
+                const cardHtml = `
+                    <div class="souvenir-card">
+                        <div class="image-container">
+                            <img src="${item.imageUrl}" alt="${item.name}">
+                        </div>
+                        <div class="content-container">
+                            <h2>${item.name}</h2>
+                            <p>${item.description}</p>
+                            <div class="meta-zone">
+                                <span class="category-label">หมวดหมู่:</span>
+                                <span class="category-value">${item.category}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                gridContainer.innerHTML += cardHtml;
+            });
+        }
+
+        // สั่งให้ทำงานทันทีเมื่อเปิดหน้าเว็บ
+        displayAllSouvenirs();
+    </script>
+
 </body>
 </html>
