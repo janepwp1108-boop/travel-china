@@ -193,27 +193,15 @@ nav a:hover::after {
 
 /* กล่องเวลาฝั่งขวา (คงไว้ที่เดิม แต่ปรับแอนิเมชันให้ไม่ตีกับ transform กึ่งกลาง) */
 .glass-card {
-    position: absolute;
-    right: 8%;
-    top: 50%;
-    margin-top: -110px; /* ใช้ margin-top ลบครึ่งหนึ่งของความสูงแทนการใช้ translateY โดดๆ เพื่อล็อกตำแหน่งขวา */
-    width: 320px;
-    padding: 30px;
-    z-index: 10;
-    background: rgba(255, 255, 255, .08);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, .2);
-    border-radius: 25px;
-    color: white;
-    animation: float 4s ease-in-out infinite;
+    font-size: 5;
 }
 
 .glass-card h3 {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .glass-card h1 {
-    font-size: 40px;
+    font-size: 20px;
 }
 
 /* ปรับแอนิเมชันลอยของกล่องเวลาใหม่ */

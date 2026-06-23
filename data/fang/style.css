@@ -175,3 +175,31 @@ nav ul{
     transform:translateY(-3px);
     box-shadow:0 10px 20px rgba(255,215,0,.5);
 }
+
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; 
+}
+
+
+.nav-link {
+    display: inline-block;
+    text-decoration: none; /* เอาเส้นใต้ของลิงก์ออก */
+    color: #ffffff; /* สีตัวอักษร */
+    background-color: #ff8902; /* สีพื้นหลังปุ่ม */
+    padding: 10px 24px; /* ระยะห่างข้างในปุ่ม (บน-ล่าง, ซ้าย-ขวา) */
+    border-radius: 8px; /* ทำขอบมน */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    transition: all 0.3s ease; /* ทำให้เอฟเฟกต์ตอนชี้เมาส์ดูนุ่มนวล */
+}
+
+/* เอฟเฟกต์ตอนเอาเมาส์ไปชี้ (Hover) */
+.nav-link:hover {
+    background-color: #cc1800; /* เปลี่ยนสีพื้นหลังเป็นสีน้ำเงิน */
+    color: #ffffff; /* เปลี่ยนสีตัวอักษรเป็นสีขาว */
+    transform: translateY(-2px); /* ลอยขึ้นเล็กน้อย */
+    box-shadow: 0 4px 8px rgba(255, 254, 246, 0.2); /* เพิ่มเงา */
+}
