@@ -25,44 +25,78 @@ body{
 
 /* ================= NAVBAR ================= */
 
+/* ================= NAVBAR ================= */
+
 nav{
     background:rgba(183, 38, 38, 0.95);
     backdrop-filter:blur(10px);
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:18px 40px;
 
     position:sticky;
     top:0;
     z-index:1000;
 
-    box-shadow:
-    0 8px 25px rgba(183,38,38,.25);
+    padding:18px 40px;
+
+    box-shadow:0 8px 25px rgba(183,38,38,.25);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:sticky;
 }
 
 nav h2{
     color:#ffe39c;
-    font-size:1.8rem;
-    font-weight:700;
+    font-size:1rem;
+    font-weight:200;
     letter-spacing:1px;
+    margin:0;
 }
 
-nav a{
+.home-btn{
+    position:absolute;
+    left:40px;
+
     color:white;
     text-decoration:none;
     font-weight:600;
+
+    padding:8px 16px;
+    border:2px solid rgba(255,255,255,.8);
+    border-radius:25px;
+
     transition:.3s;
 }
 
-nav a:hover{
-    color:#ffe39c;
+.home-btn:hover{
+    background:white;
+    color:#b72626;
 }
 
-/* ================= HERO ================= */
+.nav-menu{
+    width:100%;
+    display:flex;
+    justify-content:flex-start;
+}
 
+.home-btn{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+
+    padding:8px 18px;
+
+    border:2px solid rgba(255,255,255,.8);
+    border-radius:30px;
+
+    transition:.3s;
+}
+
+.home-btn:hover{
+    background:white;
+    color:#b72626;
+}
 .hero{
     height:70vh;
 
