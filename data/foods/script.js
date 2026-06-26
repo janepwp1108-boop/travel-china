@@ -59,7 +59,7 @@ const foods = {
     SpringRolls: {
         name: "ปอเปี๊ยทอด",
         region: "จีนตะวันออก",
-        image: "images/SpringRollsn.jpg",
+        image: "images/Spring Rolls.jpg",
         history: "เดิมเป็นอาหารในเทศกาลฤดูใบไม้ผลิ",
         ingredient: "แผ่นแป้ง, ผัก, หมู",
        
@@ -75,12 +75,12 @@ const foods = {
     FriedRice: {
         name: "ข้าวผัด",
         region: "ทั่วประเทศจีน",
-        image: "images/Fried Rice.jpg",
+        image: "images/Fried-Rice.jpg",
         history: "เกิดจากการนำข้าวเหลือมาปรุงใหม่",
         ingredient: "ข้าว, ไข่, ผัก",
        
     },
-    ChowMeinn: {
+    ChowMein: {
         name: "บะหมี่ผัด",
         region: "ภาคเหนือ",
         image: "images/Chow Mein.jpg",
@@ -99,7 +99,7 @@ const foods = {
     RoastGoose: {
         name: "ห่านย่าง",
         region: "กวางตุ้ง",
-        image: "images/Roast Goosen.jpg",
+        image: "images/Roast-Goose.jpg",
         history: "อาหารขึ้นชื่อในภัตตาคารกวางตุ้ง",
         ingredient: "ห่าน, เครื่องเทศจีน",
         
@@ -140,24 +140,24 @@ const foods = {
         name: "โจ้กไข่เจียวม้า",
         region: "กวางตุ้ง",
         image: "images/Century Egg Porridge.jpg",
-        history: "",
-        ingredient: "",
+        history: "นิยมรับประทานเป็นอาหารเช้า",
+        ingredient: "ข้าว, ไข่เยี่ยวม้า, หมู",
         
     },
     Mooncake: {
         name: "ขนมไหว้พระจันทร์",
         region: "เจียงซู",
-        image: "images/Mooncaken.jpg",
-        history: "อาหารเก่าแก่ตั้งแต่สมัยราชวงศ์สุย",
-        ingredient: "หมูสับ, ผักกาด",
+        image: "images/Mooncake.jpg",
+        history: "ขนมประจำเทศกาลไหว้พระจันทร์",
+        ingredient: "แป้ง, ถั่วแดง, เมล็ดบัว",
         
     },
     LionHeadMeatballs: {
         name: "ลูกชิ้นหัวสิงโต",
         region: "ทั่วประเทศจีน",
-        image: "images/Lion's Head Meatballs.jpg",
-        history: "ขนมประจำเทศกาลไหว้พระจันทร์",
-        ingredient: "แป้ง, ถั่วแดง, เมล็ดบัว",
+        image: "images/lion.jpg",
+        history: "อาหารเก่าแก่ตั้งแต่สมัยราชวงศ์สุยร์",
+        ingredient: "หมูสับ, ผักกาด",
         
     }
 
@@ -173,6 +173,6 @@ if (id && foods[id]) {
     document.getElementById("foodImage").src = foods[id].image;
     document.getElementById("foodHistory").textContent = foods[id].history;
     document.getElementById("foodIngredient").textContent = foods[id].ingredient;
-    document.getElementById("foodSource").href = foods[id].source;
+    
 
 }
