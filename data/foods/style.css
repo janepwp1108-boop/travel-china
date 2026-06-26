@@ -374,3 +374,56 @@ footer{
     }
 
 }
+nav{
+    background: linear-gradient(90deg,#9b111e,#c62828);
+    padding:18px 40px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+nav h2{
+    color:#ffe082;
+    font-size:28px;
+    font-weight:bold;
+}
+
+/* ปุ่มกลับหน้าแรก */
+.back-btn{
+    position:absolute;
+    right:40px;
+
+    text-decoration:none;
+    color:white;
+
+    background:linear-gradient(135deg,#ff9800,#ffd54f);
+
+    padding:12px 22px;
+
+    border-radius:40px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    box-shadow:0 6px 15px rgba(0,0,0,.2);
+}
+
+.back-btn:hover{
+    transform:translateY(-3px);
+
+    background:linear-gradient(135deg,#ffb300,#ffe082);
+
+    color:#8b0000;
+
+    box-shadow:0 10px 20px rgba(255,193,7,.4);
+}
+
+.back-btn:active{
+    transform:scale(.96);
+}
